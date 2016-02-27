@@ -11,6 +11,7 @@ body {
 }
 
 input, textarea {
+  width: 100%;
   box-sizing: border-box;
   border: 0 none;
   font: inherit;
@@ -23,7 +24,8 @@ input[type=text] {
 }
 
 input[type=submit] {
-  float: right;
+  position: absolute;
+  right: 0;
   border: 2px solid black;
   background: #ccc;
   font-weight: bold;
@@ -34,7 +36,6 @@ textarea {
 }
 
 iframe {
-  width: 100%;
   display: none;
 }
 </style>
