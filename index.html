@@ -26,10 +26,11 @@ textarea {
 </style>
 </html>
 <body>
-<form action="https://maker.ifttt.com/trigger/evernote/with/key/b_13pBt0sHVrPBeZXzo5U6" method="POST">
+<form action="https://maker.ifttt.com/trigger/evernote/with/key/b_13pBt0sHVrPBeZXzo5U6" method="POST" target="target">
 <input placeholder="New note" name="value1" type="text" autofocus />
 <textarea name="value2"></textarea>
 </form>
+<iframe name="target" onload="alert('Note saved')"></iframe>
 
 <script>
 var form = document.forms[0];
