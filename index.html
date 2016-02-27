@@ -72,6 +72,11 @@ document.addEventListener('keyup', function(ev) {
   }
 });
 
+document.addEventListener('focus', function(ev) {
+  var f = inputs.indexOf(ev.target.name);
+  if(~f) i = f;
+});
+
 window.addEventListener('load', function() {
   document.getElementsByName('target')[0].addEventListener('load', function() {
     alert('Note created!');
