@@ -50,13 +50,13 @@ iframe {
 <body>
 <form action="http://maker.ifttt.com/trigger/evernote/with/key/b_13pBt0sHVrPBeZXzo5U6" method="POST" target="target">
 <input type="submit" value="Save" name="submit" />
-<input placeholder="New note" name="value1" type="text" autofocus />
+<input placeholder="New note" name="value1" type="text" />
 <textarea name="value2"></textarea>
 </form>
 <iframe name="target"></iframe>
 
 <script>
-var i = 0;
+var i = -1;
 var inputs = ['value1', 'value2', 'submit'];
 document.getElementsByName('value1')[0].addEventListener('keydown', function(ev) {
   if(ev.keyCode === 13) {
