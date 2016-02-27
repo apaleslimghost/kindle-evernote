@@ -12,35 +12,58 @@ body {
 
 input, textarea {
   box-sizing: border-box;
+  border: 0 none;
   font: inherit;
-  width: 100%;
   padding: 8px;
 }
 
-input {
+input[type=text] {
+  width: auto;
   border-bottom: 2px solid black;
 }
 
+input[type=submit] {
+  float: right;
+  border: 2px solid black;
+  background: #ccc;
+  font-weight: bold;
+}
+
 textarea {
-  border: 0 none;
   height: 600px;
+}
+
+iframe {
+  width: 100%;
+  display: none;
 }
 </style>
 </html>
 <body>
 <form action="https://maker.ifttt.com/trigger/evernote/with/key/b_13pBt0sHVrPBeZXzo5U6" method="POST" target="target">
+<input type="submit" value="Save" name="submit" />
 <input placeholder="New note" name="value1" type="text" autofocus />
 <textarea name="value2"></textarea>
 </form>
-<iframe name="target" onload="alert('Note saved')"></iframe>
+<iframe name="target"></iframe>
 
 <script>
-var form = document.forms[0];
-form.elements.value1.addEventListener('keyup', function(ev) {
+var i = 0;
+var inputs = ['value1', 'value2', 'submit'];
+document.getElementsByName('value1').addEventListener('keyup', function(ev) {
   if(ev.keyCode === 13) {
     ev.preventDefault();
-    form.elements.value2.focus();
+    document.getElementsByName('value2').focus();
   }
+});
+
+document.addEventListener('keypress', function(ev) {
+  if(ev.keyCode === 34) { // PgDn, i.e. Kindle "next page"
+    i = (i + 1) % inputs.length;
+  } else if(ev.keyCode === 33) { // PgUp, i.e. Kindle "prev page"
+    i = (i - 1 + inputs.length) % inputs.length;
+  }
+  document.getElementsByName(inputs[i]).focus();
 });
 </script>
 </body>
