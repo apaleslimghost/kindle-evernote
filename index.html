@@ -72,9 +72,10 @@ document.addEventListener('keyup', function(ev) {
   }
 });
 
-document.addEventListener('focus', function(ev) {
-  var f = inputs.indexOf(ev.target.name);
-  if(~f) i = f;
+inputs.forEach(function(name, f) {
+  document.getElementsByName(name)[0].addEventListener('focus', function(ev) {
+    i = f;
+  });
 });
 
 window.addEventListener('load', function() {
